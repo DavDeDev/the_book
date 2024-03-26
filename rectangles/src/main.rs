@@ -5,13 +5,20 @@ struct Rectangle {
     height: u32,
 }
 
+impl Rectangle {
+    // implement area function as a method of Rectangle struct
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
 fn main() {
     // let width1 = 30;
     // let height1 = 50;
     // let's make it clearer...
     // let rect = (30, 50);
     // ...even more clearer
-    let rect =dbg!( Rectangle {
+    let rect = dbg!(Rectangle {
         width: 30,
         height: 50,
     });
@@ -23,7 +30,8 @@ fn main() {
         "The area of the rectangle is {} square pixels.",
         // area(width1, height1)
         // area(rect)
-        area(&rect)
+        // area(&rect)
+        rect.area()
     );
 }
 
@@ -34,6 +42,6 @@ fn main() {
 //     dimensions.0 * dimensions.1
 // }
 
-fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.width * rectangle.height
-}
+// fn area(rectangle: &Rectangle) -> u32 {
+//     rectangle.width * rectangle.height
+// }
