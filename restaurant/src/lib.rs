@@ -1,3 +1,10 @@
+// If we want to bring into scope ALL the public items, we use *
+// use std::collections::*;
+
+//use std::io;
+// use std::io::Write;
+// can be written...
+use std::io::{self, Write};
 // Module
 mod front_of_house {
     // Here we can define modules, functions, structs, enums, and more
@@ -71,7 +78,13 @@ mod back_of_house {
         }
     }
 }
+
+// We bring the path into scope so we don't have to use the relative/absolute path everytime we want to use `hosting`
+// NOTE: Bringing in scope a module and adding `pub` is called re-exporting the module
+pub use crate::front_of_house::hosting;
+
 pub fn eat_at_restaurant() {
+    hosting::add_to_waitlist();
     // Order a breakfast in the summer with Rye toast
     let mut meal = back_of_house::Breakfast::summer("Rye");
     // Change our mind about what bread we'd like
