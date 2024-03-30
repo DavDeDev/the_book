@@ -6,25 +6,7 @@
 // can be written...
 use std::io::{self, Write};
 // Module
-mod front_of_house {
-    // Here we can define modules, functions, structs, enums, and more
-
-    // Module
-    pub mod hosting {
-        // Function
-        pub fn add_to_waitlist() {}
-
-        fn seat_at_table() {}
-    }
-    // Module
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
+mod front_of_house;
 
 //While front_of_house isn’t public, because the eat_at_restaurant function is defined in the same module as front_of_house, we can use front_of_house::hosting::add_to_waitlist to call the add_to_waitlist function.
 // pub fn eat_at_restaurant() {
